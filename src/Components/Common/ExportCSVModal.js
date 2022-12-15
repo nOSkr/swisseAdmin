@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
-import { CSVLink } from "react-csv";
 
 const ExportCSVModal = ({ show, onCloseClick, data }) => {
   return (
@@ -32,15 +31,7 @@ const ExportCSVModal = ({ show, onCloseClick, data }) => {
               >
                   Close
               </button>
-              <CSVLink
-                  data={data}
-                  type="button"
-                  onClick={onCloseClick}
-                  className="btn w-sm btn-success "
-                  id="delete-record"
-              >
-              Download
-              </CSVLink>
+           
               </div>
       </ModalBody>
     </Modal>
