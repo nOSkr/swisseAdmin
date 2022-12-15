@@ -9,22 +9,8 @@ const BestSellingProducts = () => {
             <Col xl={6}>
                 <Card>
                     <CardHeader className="align-items-center d-flex">
-                        <h4 className="card-title mb-0 flex-grow-1">Best Selling Products</h4>
-                        <div className="flex-shrink-0">
-                            <UncontrolledDropdown className="card-header-dropdown" direction='start'>
-                                <DropdownToggle tag="a" className="text-reset" role="button">
-                                    <span className="fw-semibold text-uppercase fs-12">Sort by: </span><span className="text-muted">Today<i className="mdi mdi-chevron-down ms-1"></i></span>
-                                </DropdownToggle>
-                                <DropdownMenu className="dropdown-menu-end">
-                                    <DropdownItem>Today</DropdownItem>
-                                    <DropdownItem>Yesterday</DropdownItem>
-                                    <DropdownItem>Last 7 Days</DropdownItem>
-                                    <DropdownItem>Last 30 Days</DropdownItem>
-                                    <DropdownItem>This Month</DropdownItem>
-                                    <DropdownItem>Last Month</DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
-                        </div>
+                        <h4 className="card-title mb-0 flex-grow-1">Swisse өндөр хандалттай бараанууд</h4>
+                       
                     </CardHeader>
 
                     <CardBody>

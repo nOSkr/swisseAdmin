@@ -8,7 +8,6 @@ import logoDark from "../assets/images/logo-dark.png";
 import logoLight from "../assets/images/logo-light.png";
 
 //import Components
-import SearchOption from '../Components/Common/SearchOption';
 import WebAppsDropdown from '../Components/Common/WebAppsDropdown';
 import FullScreenDropdown from '../Components/Common/FullScreenDropdown';
 import ProfileDropdown from '../Components/Common/ProfileDropdown';
@@ -90,7 +89,6 @@ const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
                             </button>
 
 
-                            <SearchOption />
                         </div>
 
                         <div className="d-flex align-items-center">

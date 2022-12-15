@@ -3,14 +3,13 @@ import { Col, Container, Row } from "reactstrap";
 import BreadCrumb from "../../Components/Common/BreadCrumb";
 import Widget from "./Widgets";
 import BestSellingProducts from "./BestSellingProducts";
-import RecentActivity from "./RecentActivity";
 import RecentOrders from "./RecentOrders";
 import StoreVisits from "./StoreVisits";
 import TopSellers from "./TopSellers";
 
 
 const DashboardEcommerce = () => {
-  document.title = "Dashboard | Velzon - React Admin & Dashboard Template";
+  document.title = "Алтан заан || Хянах самбар";
 
   return (
     <React.Fragment>
@@ -34,7 +33,6 @@ const DashboardEcommerce = () => {
                 </Row>
               </div>
             </Col>
-            <RecentActivity />
           </Row>
         </Container>
       </div>

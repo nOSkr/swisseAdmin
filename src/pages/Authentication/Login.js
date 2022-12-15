@@ -74,7 +74,7 @@ const Login = (props) => {
         }, 3000);
     }, [dispatch, error]);
 
-    document.title = "Basic SignIn | Velzon - React Admin & Dashboard Template";
+    document.title = "Алтан заан ХХК Админ";
     return (
         <React.Fragment>
             <ParticlesAuth>
@@ -88,7 +88,7 @@ const Login = (props) => {
                                             <img src={logoLight} alt="" height="20" />
                                         </Link>
                                     </div>
-                                    <p className="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
+                                    <p className="mt-3 fs-15 fw-medium">Алтан заан ХХК </p>
                                 </div>
                             </Col>
                         </Row>
@@ -98,8 +98,8 @@ const Login = (props) => {
                                 <Card className="mt-4 card-bg-fill">
                                     <CardBody className="p-4">
                                         <div className="text-center mt-2">
-                                            <h5 className="text-primary">Welcome Back !</h5>
-                                            <p className="text-muted">Sign in to continue to Velzon.</p>
+                                            <h5 className="text-primary">Тавтай морил !</h5>
+                                            <p className="text-muted">Админ эрхээр нэвтрэн орно уу.</p>
                                         </div>
                                         {error && error ? (<Alert color="danger"> {error} </Alert>) : null}
                                         <div className="p-2 mt-4">
@@ -131,17 +131,15 @@ const Login = (props) => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <div className="float-end">
-                                                        <Link to="/forgot-password" className="text-muted">Forgot password?</Link>
-                                                    </div>
-                                                    <Label className="form-label" htmlFor="password-input">Password</Label>
+                                                  
+                                                    <Label className="form-label" htmlFor="password-input">Нууц үг</Label>
                                                     <div className="position-relative auth-pass-inputgroup mb-3">
                                                         <Input
                                                             name="password"
                                                             value={validation.values.password || ""}
                                                             type="password"
                                                             className="form-control pe-5"
-                                                            placeholder="Enter Password"
+                                                            placeholder="Нууц үг"
                                                             onChange={validation.handleChange}
                                                             onBlur={validation.handleBlur}
                                                             invalid={
@@ -155,13 +153,10 @@ const Login = (props) => {
                                                     </div>
                                                 </div>
 
-                                                <div className="form-check">
-                                                    <Input className="form-check-input" type="checkbox" value="" id="auth-remember-check" />
-                                                    <Label className="form-check-label" htmlFor="auth-remember-check">Remember me</Label>
-                                                </div>
+                                            
 
                                                 <div className="mt-4">
-                                                    <Button color="primary" className="btn btn-primary w-100" type="submit">Sign In</Button>
+                                                    <Button color="primary" className="btn btn-primary w-100" type="submit">Нэвтрэх</Button>
                                                 </div>
 
                                             
