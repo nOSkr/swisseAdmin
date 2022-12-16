@@ -8,9 +8,7 @@ import logoLight from "../assets/images/logo-light.png";
 
 //Import Components
 import VerticalLayout from "./VerticalLayouts";
-import TwoColumnLayout from "./TwoColumnLayout";
 import { Container } from "reactstrap";
-import HorizontalLayout from "./HorizontalLayout";
 
 const Sidebar = ({ layoutType }) => {
   useEffect(() => {
