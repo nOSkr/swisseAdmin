@@ -4,6 +4,7 @@ import { Card, CardBody, CardHeader, Col, DropdownItem, DropdownMenu, DropdownTo
 import { bestSellingProducts } from "../../common/data";
 
 const BestSellingProducts = () => {
+    // 1
     return (
         <React.Fragment>
             <Col xl={6}>

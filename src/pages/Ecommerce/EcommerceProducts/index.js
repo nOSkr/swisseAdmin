@@ -9,8 +9,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  TabContent,
-  TabPane,
   UncontrolledCollapse,
   Row,
   Card,
@@ -41,16 +39,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-const SingleOptions = [
-  { value: 'Watches', label: 'Watches' },
-  { value: 'Headset', label: 'Headset' },
-  { value: 'Sweatshirt', label: 'Sweatshirt' },
-  { value: '20% off', label: '20% off' },
-  { value: '4 star', label: '4 star' },
-];
-
 const EcommerceProducts = (props) => {
-  document.title = "Products | Velzon - React Admin & Dashboard Template";
+  document.title = "Алтан заан ХХК || Бараанууд";
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => ({
@@ -60,12 +50,10 @@ const EcommerceProducts = (props) => {
 
   const [productList, setProductList] = useState([]);
   const [activeTab, setActiveTab] = useState("1");
-  const [selectedMulti, setselectedMulti] = useState(null);
+
   const [product, setProduct] = useState(null);
 
-  function handleMulti(selectedMulti) {
-    setselectedMulti(selectedMulti);
-  }
+
 
   useEffect(() => {
     setProductList(products);
@@ -117,38 +105,8 @@ const EcommerceProducts = (props) => {
     setCate(category);
   };
 
-  const [ratingvalues, setRatingvalues] = useState([]);
-  /*
-  on change rating checkbox method
-  */
-  const onChangeRating = value => {
-    setProductList(productsData.filter(product => product.rating >= value));
 
-    var modifiedRating = [...ratingvalues];
-    modifiedRating.push(value);
-    setRatingvalues(modifiedRating);
-  };
 
-  const onUncheckMark = (value) => {
-    var modifiedRating = [...ratingvalues];
-    const modifiedData = (modifiedRating || []).filter(x => x !== value);
-    /*
-    find min values
-    */
-    var filteredProducts = productsData;
-    if (modifiedData && modifiedData.length && value !== 1) {
-      var minValue = Math.min(...modifiedData);
-      if (minValue && minValue !== Infinity) {
-        filteredProducts = productsData.filter(
-          product => product.rating >= minValue
-        );
-        setRatingvalues(modifiedData);
-      }
-    } else {
-      filteredProducts = productsData;
-    }
-    setProductList(filteredProducts);
-  };
 
   //delete order
   const [deleteModal, setDeleteModal] = useState(false);
@@ -198,7 +156,7 @@ const EcommerceProducts = (props) => {
         },
       },
       {
-        Header: "Product",
+        Header: "Бараа",
         Cell: (product) => (
           <>
             <div className="d-flex align-items-center">
@@ -234,12 +192,12 @@ const EcommerceProducts = (props) => {
         ),
       },
       {
-        Header: "Stock",
+        Header: "Үлдэгдэл",
         accessor: "stock",
         filterable: false,
       },
       {
-        Header: "Price",
+        Header: "Үнэ",
         accessor: "price",
         filterable: false,
         Cell: (cellProps) => {
@@ -247,20 +205,13 @@ const EcommerceProducts = (props) => {
         },
       },
       {
-        Header: "Orders",
+        Header: "Хандалт",
         accessor: "orders",
         filterable: false,
       },
+
       {
-        Header: "Rating",
-        accessor: "rating",
-        filterable: false,
-        Cell: (cellProps) => {
-          return <Rating {...cellProps} />;
-        },
-      },
-      {
-        Header: "Published",
+        Header: "Нийтэлсэн",
         accessor: "publishedDate",
         filterable: false,
         Cell: (cellProps) => {
@@ -268,7 +219,7 @@ const EcommerceProducts = (props) => {
         },
       },
       {
-        Header: "Action",
+        Header: "Үйлдэл",
         Cell: (cellProps) => {
           return (
             <UncontrolledDropdown>
@@ -282,12 +233,12 @@ const EcommerceProducts = (props) => {
               <DropdownMenu className="dropdown-menu-end">
                 <DropdownItem href="apps-ecommerce-product-details">
                   <i className="ri-eye-fill align-bottom me-2 text-muted"></i>{" "}
-                  View
+                  Үзэх
                 </DropdownItem>
 
                 <DropdownItem href="apps-ecommerce-add-product">
                   <i className="ri-pencil-fill align-bottom me-2 text-muted"></i>{" "}
-                  Edit
+                  Өөрчлөх
                 </DropdownItem>
 
                 <DropdownItem divider />
@@ -300,7 +251,7 @@ const EcommerceProducts = (props) => {
                   }}
                 >
                   <i className="ri-delete-bin-fill align-bottom me-2 text-muted"></i>{" "}
-                  Delete
+                  Устгах
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
@@ -328,7 +279,7 @@ const EcommerceProducts = (props) => {
         onCloseClick={() => setDeleteModalMulti(false)}
       />
       <Container fluid>
-        <BreadCrumb title="Products" pageTitle="Ecommerce" />
+        <BreadCrumb title="Бүтээгдэхүүн" pageTitle="Бараа" />
 
         <Row>
           <Col xl={3} lg={4}>
@@ -336,99 +287,37 @@ const EcommerceProducts = (props) => {
               <CardHeader >
                 <div className="d-flex mb-3">
                   <div className="flex-grow-1">
-                    <h5 className="fs-16">Filters</h5>
+                    <h5 className="fs-16">Шүүх</h5>
                   </div>
-                  <div className="flex-shrink-0">
-                    <Link to="#" className="text-decoration-underline">
-                      Clear All
-                    </Link>
-                  </div>
+                
                 </div>
 
-                <div className="filter-choices-input">
-                  <Select
-                    value={selectedMulti}
-                    isMulti={true}
-                    onChange={() => {
-                      handleMulti();
-                    }}
-                    options={SingleOptions}
-                  />
-                </div>
               </CardHeader>
 
               <div className="accordion accordion-flush">
                 <div className="card-body border-bottom">
                   <div>
                     <p className="text-muted text-uppercase fs-12 fw-medium mb-2">
-                      Products
+                      Дэлүүр
                     </p>
                     <ul className="list-unstyled mb-0 filter-list">
                       <li>
                         <Link to="#" className={cate === "Kitchen Storage & Containers" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("Kitchen Storage & Containers")}>
                           <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Grocery</h5>
+                            <h5 className="fs-13 mb-0 listname">Swisse</h5>
+                          </div>
+                          <div className="flex-shrink-0 ms-2">
+                            <span className="badge bg-light text-muted">5</span>
                           </div>
                         </Link>
                       </li>
                       <li>
                         <Link to="#" className={cate === "Clothes" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("Clothes")}>
                           <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Fashion</h5>
+                            <h5 className="fs-13 mb-0 listname">Nutrex</h5>
                           </div>
                           <div className="flex-shrink-0 ms-2">
                             <span className="badge bg-light text-muted">5</span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="#" className={cate === "Watches" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("Watches")}>
-                          <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Watches</h5>
-                          </div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="#" className={cate === "electronics" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("electronics")}>
-                          <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Electronics</h5>
-                          </div>
-                          <div className="flex-shrink-0 ms-2">
-                            <span className="badge bg-light text-muted">5</span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="#" className={cate === "Furniture" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("Furniture")}>
-                          <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Furniture</h5>
-                          </div>
-                          <div className="flex-shrink-0 ms-2">
-                            <span className="badge bg-light text-muted">6</span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="#" className={cate === "Bike Accessories" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("Bike Accessories")}>
-                          <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Automotive Accessories</h5>
-                          </div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="#" className={cate === "appliances" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("appliances")}>
-                          <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Appliances</h5>
-                          </div>
-                          <div className="flex-shrink-0 ms-2">
-                            <span className="badge bg-light text-muted">7</span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="#" className={cate === "Bags, Wallets and Luggage" ? "active d-flex py-1 align-items-center" : "d-flex py-1 align-items-center"} onClick={() => categories("Bags, Wallets and Luggage")} >
-                          <div className="flex-grow-1">
-                            <h5 className="fs-13 mb-0 listname">Kids</h5>
                           </div>
                         </Link>
                       </li>
@@ -438,7 +327,7 @@ const EcommerceProducts = (props) => {
 
                 <div className="card-body border-bottom">
                   <p className="text-muted text-uppercase fs-12 fw-medium mb-4">
-                    Price
+                    Үнэ
                   </p>
 
                   <Nouislider
@@ -464,11 +353,9 @@ const EcommerceProducts = (props) => {
                       id="flush-headingBrands"
                     >
                       <span className="text-muted text-uppercase fs-12 fw-medium">
-                        Brands
+                        Категори
                       </span>{" "}
-                      <span className="badge bg-info rounded-pill align-middle ms-1">
-                        2
-                      </span>
+                  
                     </button>
                   </h2>
                   <UncontrolledCollapse
@@ -481,14 +368,6 @@ const EcommerceProducts = (props) => {
                       aria-labelledby="flush-headingBrands"
                     >
                       <div className="accordion-body text-body pt-0">
-                        <div className="search-box search-box-sm">
-                          <input
-                            type="text"
-                            className="form-control bg-light border-0"
-                            placeholder="Search Brands..."
-                          />
-                          <i className="ri-search-line search-icon"></i>
-                        </div>
                         <div className="d-flex flex-column gap-2 mt-3">
                           <div className="form-check">
                             <input
@@ -501,7 +380,7 @@ const EcommerceProducts = (props) => {
                               className="form-check-label"
                               htmlFor="productBrandRadio5"
                             >
-                              Boat
+                              Хүүхэд - Swisse
                             </label>
                           </div>
                           <div className="form-check">
@@ -514,7 +393,7 @@ const EcommerceProducts = (props) => {
                               className="form-check-label"
                               htmlFor="productBrandRadio4"
                             >
-                              OnePlus
+                              Хүүхэд - Swisse
                             </label>
                           </div>
                           <div className="form-check">
@@ -527,288 +406,7 @@ const EcommerceProducts = (props) => {
                               className="form-check-label"
                               htmlFor="productBrandRadio3"
                             >
-                              Realme
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productBrandRadio2"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productBrandRadio2"
-                            >
-                              Sony
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productBrandRadio1"
-                              defaultChecked
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productBrandRadio1"
-                            >
-                              JBL
-                            </label>
-                          </div>
-
-                          <div>
-                            <button
-                              type="button"
-                              className="btn btn-link text-decoration-none text-uppercase fw-medium p-0"
-                            >
-                              1,235 More
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </UncontrolledCollapse>
-                </div>
-
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button bg-transparent shadow-none collapsed"
-                      type="button"
-                      id="flush-headingDiscount"
-                    >
-                      <span className="text-muted text-uppercase fs-12 fw-medium">
-                        Discount
-                      </span>{" "}
-                      <span className="badge bg-info rounded-pill align-middle ms-1">
-                        1
-                      </span>
-                    </button>
-                  </h2>
-                  <UncontrolledCollapse toggler="#flush-headingDiscount">
-                    <div
-                      id="flush-collapseDiscount"
-                      className="accordion-collapse collapse show"
-                    >
-                      <div className="accordion-body text-body pt-1">
-                        <div className="d-flex flex-column gap-2">
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productdiscountRadio6"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productdiscountRadio6"
-                            >
-                              50% or more
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productdiscountRadio5"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productdiscountRadio5"
-                            >
-                              40% or more
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productdiscountRadio4"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productdiscountRadio4"
-                            >
-                              30% or more
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productdiscountRadio3"
-                              defaultChecked
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productdiscountRadio3"
-                            >
-                              20% or more
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productdiscountRadio2"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productdiscountRadio2"
-                            >
-                              10% or more
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productdiscountRadio1"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productdiscountRadio1"
-                            >
-                              Less than 10%
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </UncontrolledCollapse>
-                </div>
-
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button bg-transparent shadow-none collapsed"
-                      type="button"
-                      id="flush-headingRating"
-                    >
-                      <span className="text-muted text-uppercase fs-12 fw-medium">
-                        Rating
-                      </span>{" "}
-                      <span className="badge bg-info rounded-pill align-middle ms-1">
-                        1
-                      </span>
-                    </button>
-                  </h2>
-
-                  <UncontrolledCollapse toggler="#flush-headingRating">
-                    <div
-                      id="flush-collapseRating"
-                      className="accordion-collapse collapse show"
-                      aria-labelledby="flush-headingRating"
-                    >
-                      <div className="accordion-body text-body">
-                        <div className="d-flex flex-column gap-2">
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productratingRadio4"
-                              onChange={e => {
-                                if (e.target.checked) {
-                                  onChangeRating(4);
-                                } else {
-                                  onUncheckMark(4);
-                                }
-                              }}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productratingRadio4"
-                            >
-                              <span className="text-muted">
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star"></i>
-                              </span>{" "}
-                              4 & Above
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productratingRadio3"
-                              onChange={e => {
-                                if (e.target.checked) {
-                                  onChangeRating(3);
-                                } else {
-                                  onUncheckMark(3);
-                                }
-                              }}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productratingRadio3"
-                            >
-                              <span className="text-muted">
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star"></i>
-                                <i className="mdi mdi-star"></i>
-                              </span>{" "}
-                              3 & Above
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productratingRadio2"
-                              onChange={e => {
-                                if (e.target.checked) {
-                                  onChangeRating(2);
-                                } else {
-                                  onUncheckMark(2);
-                                }
-                              }}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productratingRadio2"
-                            >
-                              <span className="text-muted">
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star"></i>
-                                <i className="mdi mdi-star"></i>
-                                <i className="mdi mdi-star"></i>
-                              </span>{" "}
-                              2 & Above
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="productratingRadio1"
-                              onChange={e => {
-                                if (e.target.checked) {
-                                  onChangeRating(1);
-                                } else {
-                                  onUncheckMark(1);
-                                }
-                              }}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="productratingRadio1"
-                            >
-                              <span className="text-muted">
-                                <i className="mdi mdi-star text-warning"></i>
-                                <i className="mdi mdi-star"></i>
-                                <i className="mdi mdi-star"></i>
-                                <i className="mdi mdi-star"></i>
-                                <i className="mdi mdi-star"></i>
-                              </span>{" "}
-                              1
+                               Хүүхэд - Swisse
                             </label>
                           </div>
                         </div>
@@ -841,60 +439,30 @@ const EcommerceProducts = (props) => {
                             }}
                             href="#"
                           >
-                            All{" "}
+                            Бүгд{" "}
                             <span className="badge badge-soft-danger align-middle rounded-pill ms-1">
                               12
                             </span>
                           </NavLink>
                         </NavItem>
-                        <NavItem>
-                          <NavLink
-                            className={classnames(
-                              { active: activeTab === "2" },
-                              "fw-semibold text-body"
-                            )}
-                            onClick={() => {
-                              toggleTab("2", "published");
-                            }}
-                            href="#"
-                          >
-                            Published{" "}
-                            <span className="badge badge-soft-danger align-middle rounded-pill ms-1">
-                              5
-                            </span>
-                          </NavLink>
-                        </NavItem>
-                        <NavItem>
-                          <NavLink
-                            className={classnames(
-                              { active: activeTab === "3" },
-                              "fw-semibold text-body"
-                            )}
-                            onClick={() => {
-                              toggleTab("3", "draft");
-                            }}
-                            href="#"
-                          >
-                            Draft
-                          </NavLink>
-                        </NavItem>
+                    
                       </Nav>
                     </div>
                     <div className="col-auto">
                       <div id="selection-element">
                         <div className="my-n1 d-flex align-items-center text-muted">
-                          Select{" "}
+                          Сонгогдсон{" "}
                           <div
                             id="select-content"
                             className="text-body fw-semibold px-1"
                           >{dele}</div>{" "}
-                          Result{" "}
+                          Илэрц{" "}
                           <button
                             type="button"
                             className="btn btn-link link-danger p-0 ms-3"
                             onClick={() => setDeleteModalMulti(true)}
                           >
-                            Remove
+                            Устгах
                           </button>
                         </div>
                       </div>
@@ -914,7 +482,7 @@ const EcommerceProducts = (props) => {
                         tableClass="mb-0 align-middle table-borderless"
                         theadClass="table-light text-muted"
                         isProductsFilter={true}
-                        SearchPlaceholder={"Search Products..."}
+                        SearchPlaceholder={"Бараа хайх..."}
                       />
                     </>
                   ) : (
@@ -930,24 +498,12 @@ const EcommerceProducts = (props) => {
                         </div>
 
                         <div className="mt-4">
-                          <h5>Sorry! No Result Found</h5>
+                          <h5>Бараа олдсонгеи</h5>
                         </div>
                       </div>
                     </>
                   )}
                 </div>
-                {/* <div className="card-body">
-                  <TabContent className="text-muted">
-                    <TabPane>
-                      <div
-                        id="table-product-list-all"
-                        className="table-card gridjs-border-none pb-2"
-                      >
-
-                      </div>
-                    </TabPane>
-                  </TabContent>
-                </div> */}
               </div>
             </div>
           </div>

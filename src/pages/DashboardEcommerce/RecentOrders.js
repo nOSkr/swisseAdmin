@@ -4,17 +4,13 @@ import { Card, CardBody, CardHeader, Col } from 'reactstrap';
 import { recentOrders } from '../../common/data';
 
 const RecentOrders = () => {
+    // 1
     return (
         <React.Fragment>
             <Col xl={8}>
                 <Card>
                     <CardHeader className="align-items-center d-flex">
-                        <h4 className="card-title mb-0 flex-grow-1">Recent Orders</h4>
-                        <div className="flex-shrink-0">
-                            <button type="button" className="btn btn-soft-info btn-sm">
-                                <i className="ri-file-list-3-line align-middle"></i> Generate Report
-                            </button>
-                        </div>
+                        <h4 className="card-title mb-0 flex-grow-1">Сүүлд нэмэгдсэн бараанууд</h4>
                     </CardHeader>
 
                     <CardBody>

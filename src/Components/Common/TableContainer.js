@@ -133,8 +133,6 @@ const TableContainer = ({
   isAddUserList,
   handleOrderClicks,
   handleUserClick,
-  handleCustomerClick,
-  isAddCustList,
   customPageSize,
   tableClass,
   theadClass,
@@ -205,7 +203,7 @@ const TableContainer = ({
             >
               {[10, 20, 30, 40, 50].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>
-                  Show {pageSize}
+                  Show{pageSize}
                 </option>
               ))}
             </select>
@@ -240,7 +238,7 @@ const TableContainer = ({
                 onClick={handleOrderClicks}
               >
                 <i className="mdi mdi-plus me-1" />
-                Add New Order
+                Бараа нэмэх
               </Button>
             </div>
           </Col>
@@ -255,26 +253,12 @@ const TableContainer = ({
                 onClick={handleUserClick}
               >
                 <i className="mdi mdi-plus-circle-outline me-1" />
-                Create New User
+                Бараа хайх
               </Button>
             </div>
           </Col>
         )}
-        {isAddCustList && (
-          <Col sm="7">
-            <div className="text-sm-end">
-              <Button
-                type="button"
-                color="success"
-                className="btn-rounded mb-2 me-2"
-                onClick={handleCustomerClick}
-              >
-                <i className="mdi mdi-plus me-1" />
-                New Customers
-              </Button>
-            </div>
-          </Col>
-        )}
+ 
       </Row>
 
       <div className={divClass}>
@@ -327,7 +311,7 @@ const TableContainer = ({
           </div>
         </Col>
         <Col className="col-md-auto d-none d-md-block">
-          Page{" "}
+          Хуудас{" "}
           <strong>
             {pageIndex + 1} of {pageOptions.length}
           </strong>

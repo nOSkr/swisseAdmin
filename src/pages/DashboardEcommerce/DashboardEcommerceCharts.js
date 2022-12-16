@@ -4,6 +4,7 @@ import getChartColorsArray from "../../Components/Common/ChartsDynamicColor";
 
 const RevenueCharts = ({ dataColors, series }) => {
   var linechartcustomerColors = getChartColorsArray(dataColors);
+  // 1
 
   var options = {
     chart: {
@@ -136,9 +137,9 @@ const RevenueCharts = ({ dataColors, series }) => {
 
 const StoreVisitsCharts = ({ dataColors }) => {
   var chartDonutBasicColors = getChartColorsArray(dataColors);
-  const series = [44, 55, 41, 17, 15];
+  const series = [44, 55, ];
   var options = {
-    labels: ["Direct", "Social", "Email", "Other", "Referrals"],
+    labels: ["Swisse", "Nutrex",],
     chart: {
       height: 333,
       type: "donut",

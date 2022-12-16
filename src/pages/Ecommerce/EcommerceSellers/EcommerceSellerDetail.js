@@ -17,7 +17,6 @@ import {
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 
 import Img2 from "../../../assets/images/companies/img-2.png";
-import ReviewSlider from "../../../Components/Common/ReviewSlider";
 import TableContainer from "../../../Components/Common/TableContainer";
 //Import actions
 import { getProducts as onGetProducts } from "../../../store/ecommerce/action";
@@ -29,14 +28,12 @@ import {
   Price,
 } from "../EcommerceProducts/EcommerceProductCol";
 
-import Revenue from "../../DashboardEcommerce/Revenue";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 const EcommerceSellerDetail = () => {
-  document.title = "Sellers Details | Velzon - React Admin & Dashboard Template";
+  document.title = "Алтан заан ХХК || Дэлгүүр дэлгэрэнгүй ";
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => ({
@@ -178,7 +175,7 @@ const EcommerceSellerDetail = () => {
       <div className="page-content">
         <Container fluid>
         
-          <BreadCrumb title="Seller Details" pageTitle="Ecommerce" />
+          <BreadCrumb title="Дэлгүүр дэлгэрэнгүй" pageTitle="Дэлгүүр" />
           <Row>
             <div className="col-xxl-3">
               <Card>
@@ -190,284 +187,16 @@ const EcommerceSellerDetail = () => {
                       </div>
                     </div>
                     <div className="mt-4 text-center">
-                      <h5 className="mb-1">Force Medicines</h5>
-                      <p className="text-muted">Since 1987</p>
+                      <h5 className="mb-1">Swisse</h5>
+                      <p className="text-muted">2021 он</p>
                     </div>
-                    <div className="table-responsive">
-                      <Table className="table mb-0 table-borderless">
-                        <tbody>
-                          <tr>
-                            <th>
-                              <span className="fw-medium">Owner Name</span>
-                            </th>
-                            <td>David Marshall</td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <span className="fw-medium">Company Type</span>
-                            </th>
-                            <td>Partnership</td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <span className="fw-medium">Email</span>
-                            </th>
-                            <td>forcemedicines@gamil.com</td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <span className="fw-medium">Website</span>
-                            </th>
-                            <td>
-                              <Link to="#" className="link-primary">
-                                www.forcemedicines.com
-                              </Link>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <span className="fw-medium">Contact No.</span>
-                            </th>
-                            <td>+(123) 9876 654 321</td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <span className="fw-medium">Fax</span>
-                            </th>
-                            <td>+1 999 876 5432</td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <span className="fw-medium">Location</span>
-                            </th>
-                            <td>United Kingdom</td>
-                          </tr>
-                        </tbody>
-                      </Table>
-                    </div>
+                  
                   </div>
-                </CardBody>
-                <CardBody className="border-top border-top-dashed p-4">
-                  <div>
-                    <h6 className="text-muted text-uppercase fw-semibold mb-4">
-                      Customer Reviews
-                    </h6>
-                    <div>
-                      <div>
-                        <div className="bg-light px-3 py-2 rounded-2 mb-2">
-                          <div className="d-flex align-items-center">
-                            <div className="flex-grow-1">
-                              <div className="fs-16 align-middle text-warning">
-                                <i className="ri-star-fill"></i>
-                                <i className="ri-star-fill"></i>
-                                <i className="ri-star-fill"></i>
-                                <i className="ri-star-fill"></i>
-                                <i className="ri-star-half-fill"></i>
-                              </div>
-                            </div>
-                            <div className="flex-shrink-0">
-                              <h6 className="mb-0">4.5 out of 5</h6>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-muted">
-                            Total <span className="fw-medium">5.50k</span>{" "}
-                            reviews
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="mt-3">
-                        <Row className="align-items-center g-2">
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0">5 star</h6>
-                            </div>
-                          </div>
-                          <div className="col">
-                            <div className="p-1">
-                              <div className="progress animated-progess progress-sm">
-                                <Progress
-                                  bar
-                                  color="success"
-                                  value="50.16"
-                                ></Progress>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0 text-muted">2758</h6>
-                            </div>
-                          </div>
-                        </Row>
-
-                        <Row className="align-items-center g-2">
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0">4 star</h6>
-                            </div>
-                          </div>
-                          <div className="col">
-                            <div className="p-1">
-                              <div className="progress animated-progess progress-sm">
-                                <Progress
-                                  bar
-                                  color="success"
-                                  value="29.32"
-                                ></Progress>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0 text-muted">1063</h6>
-                            </div>
-                          </div>
-                        </Row>
-
-                        <Row className="align-items-center g-2">
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0">3 star</h6>
-                            </div>
-                          </div>
-                          <div className="col">
-                            <div className="p-1">
-                              <div className="progress animated-progess progress-sm">
-                                <Progress
-                                  bar
-                                  color="warning"
-                                  value="18.12"
-                                ></Progress>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0 text-muted">997</h6>
-                            </div>
-                          </div>
-                        </Row>
-
-                        <Row className="align-items-center g-2">
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0">2 star</h6>
-                            </div>
-                          </div>
-                          <div className="col">
-                            <div className="p-1">
-                              <div className="progress animated-progess progress-sm">
-                                <Progress
-                                  bar
-                                  color="success"
-                                  value="4.98"
-                                ></Progress>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0 text-muted">227</h6>
-                            </div>
-                          </div>
-                        </Row>
-
-                        <Row className="align-items-center g-2">
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0">1 star</h6>
-                            </div>
-                          </div>
-                          <div className="col">
-                            <div className="p-1">
-                              <div className="progress animated-progess progress-sm">
-                                <Progress
-                                  bar
-                                  color="danger"
-                                  value="7.42"
-                                ></Progress>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-auto">
-                            <div className="p-1">
-                              <h6 className="mb-0 text-muted">408</h6>
-                            </div>
-                          </div>
-                        </Row>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-                <CardBody className="p-4 border-top border-top-dashed">
-                  <h6 className="text-muted text-uppercase fw-semibold mb-4">
-                    Products Reviews
-                  </h6>
-
-                  <ReviewSlider />
-
-                  <div className="text-center mt-3">
-                    <Link to="#" className="link-primary">
-                      View All Reviews{" "}
-                      <i className="ri-arrow-right-line align-bottom ms-1"></i>
-                    </Link>
-                  </div>
-                </CardBody>
-                <CardBody className="p-4 border-top border-top-dashed">
-                  <h6 className="text-muted text-uppercase fw-semibold mb-4">
-                    Contact Support
-                  </h6>
-                  <form action="#">
-                    <div className="mb-3">
-                      <textarea
-                        className="form-control"
-                        id="exampleFormControlTextarea1"
-                        rows="4"
-                        placeholder="Enter your messages..."
-                      ></textarea>
-                    </div>
-                    <div className="text-end">
-                      <button type="submit" className="btn btn-primary">
-                        <i className="ri-mail-send-line align-bottom me-1"></i>{" "}
-                        Send Messages
-                      </button>
-                    </div>
-                  </form>
                 </CardBody>
               </Card>
             </div>
 
             <div className="col-xxl-9">
-              <Revenue />
-
-              <Row className="g-4 mb-3">
-                <div className="col-sm-auto">
-                  <div>
-                    <a
-                      href="apps-ecommerce-add-product"
-                      className="btn btn-info"
-                    >
-                      <i className="ri-add-line align-bottom me-1"></i> Add New
-                    </a>
-                  </div>
-                </div>
-                <div className="col-sm">
-                  <div className="d-flex justify-content-sm-end">
-                    <div className="search-box ms-2">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Search Products..."
-                      />
-                      <i className="ri-search-line search-icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </Row>
               <Card>
                 <CardBody>
                   <div

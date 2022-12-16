@@ -15,7 +15,7 @@ const DashboardEcommerce = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          <BreadCrumb title="Нүүр хуудас" pageTitle="Dashboards!" />
+          <BreadCrumb title="хянах самбар" pageTitle="Нүүр" />
           <Row>
             <Col>
               <div className="h-100">

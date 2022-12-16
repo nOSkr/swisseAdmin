@@ -5,6 +5,7 @@ import { Card, CardBody, Col } from 'reactstrap';
 import { ecomWidgets } from "../../common/data";
 
 const Widgets = () => {
+    // 1
     const numberFormatter = Intl.NumberFormat("en-US");
     return (
         <React.Fragment>

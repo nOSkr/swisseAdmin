@@ -181,7 +181,7 @@ const productDetailsWidgets = [
   {
     id: 1,
     icon: "ri-money-dollar-circle-fill",
-    label: "Price",
+    label: "Үнэ",
     labelDetail: "$120.40",
   },
   {
