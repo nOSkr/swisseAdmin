@@ -148,7 +148,9 @@
     ]
   },
   "resolutions": {
-    "moment": "2.29.1",
+    "moment": "2.29.1"
+  },
+  "overrides":{
     "autoprefixer": "10.4.5"
   },
   "devDependencies": {
