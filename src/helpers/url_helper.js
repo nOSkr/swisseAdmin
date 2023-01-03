@@ -2,7 +2,7 @@
 export const POST_FAKE_REGISTER = "/auth/signup";
 
 //LOGIN
-export const POST_FAKE_LOGIN = "/auth/signin";
+export const POST_FAKE_LOGIN = "/users/login";
 export const POST_FAKE_JWT_LOGIN = "/post-jwt-login";
 export const POST_FAKE_PASSWORD_FORGET = "/auth/forgot-password";
 export const POST_FAKE_JWT_PASSWORD_FORGET = "/jwt-forget-pwd";
@@ -11,28 +11,10 @@ export const POST_FAKE_JWT_PASSWORD_FORGET = "/jwt-forget-pwd";
 export const POST_EDIT_JWT_PROFILE = "/post-jwt-profile";
 export const POST_EDIT_PROFILE = "/user";
 
-// Calendar
-export const GET_EVENTS = "/events";
-export const GET_CATEGORIES = "/categories";
-export const GET_UPCOMMINGEVENT = "/upcommingevents";
-export const ADD_NEW_EVENT = "/add/event";
-export const UPDATE_EVENT = "/update/event";
-export const DELETE_EVENT = "/delete/event";
-
-// Chat
-export const GET_DIRECT_CONTACT = "/chat";
-export const GET_MESSAGES = "/messages";
-export const ADD_MESSAGE = "add/message";
-export const GET_CHANNELS = "/channels";
-export const DELETE_MESSAGE = "delete/message";
-
-//Mailbox
-export const GET_MAIL_DETAILS = "/mail";
-export const DELETE_MAIL = "/delete/mail";
 
 // Ecommerce
 // Product
-export const GET_PRODUCTS = "/apps/product";
+export const GET_PRODUCTS = "/products";
 export const DELETE_PRODUCT = "/apps/product";
 export const ADD_NEW_PRODUCT = "/apps/product";
 export const UPDATE_PRODUCT = "/apps/product";

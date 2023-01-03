@@ -16,7 +16,7 @@ const DashboardEcommerce = () => {
       <div className="page-content">
         <Container fluid>
           <BreadCrumb title="хянах самбар" pageTitle="Нүүр" />
-          <Row>
+          {/* <Row>
             <Col>
               <div className="h-100">
                 <Row>
@@ -33,7 +33,7 @@ const DashboardEcommerce = () => {
                 </Row>
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
     </React.Fragment>

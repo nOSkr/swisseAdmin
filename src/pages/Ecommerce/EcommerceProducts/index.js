@@ -27,7 +27,7 @@ import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import TableContainer from "../../../Components/Common/TableContainer";
 import { Rating, Published, Price } from "./EcommerceProductCol";
 //Import data
-import { productsData } from "../../../common/data";
+// import { productsData } from "../../../common/data";
 
 //Import actions
 import { getProducts as onGetProducts, deleteProducts as onDeleteProducts } from "../../../store/ecommerce/action";
@@ -79,27 +79,26 @@ const EcommerceProducts = (props) => {
       setProductList(filteredProducts);
     }
   };
+  // useEffect(() => {
+  //   onUpdate([0, 2000])
+  // }, [])
 
-  useEffect(() => {
-    onUpdate([0, 2000])
-  }, [])
-
-  const onUpdate = (value) => {
-    setProductList(
-      productsData.filter(
-        (product) => product.price >= value[0] && product.price <= value[1],
-        document.getElementById("minCost").value = value[0],
-        document.getElementById("maxCost").value = value[1],
-      )
-    );
-  };
+  // const onUpdate = (value) => {
+  //   setProductList( 
+  //     productList.filter(
+  //       (product) => product.price >= value[0] && product.price <= value[1],
+  //       document.getElementById("minCost").value = value[0],
+  //       document.getElementById("maxCost").value = value[1],
+  //     )
+  //   );
+  // };
 
   const [cate, setCate] = useState("all");
 
   const categories = (category) => {
     let filteredProducts = products;
     if (category !== "all") {
-      filteredProducts = products.filter((product) => product.category === category);
+      filteredProducts = products.filter((product) => product.subCategory === category);
     }
     setProductList(filteredProducts);
     setCate(category);
@@ -162,8 +161,9 @@ const EcommerceProducts = (props) => {
             <div className="d-flex align-items-center">
               <div className="flex-shrink-0 me-3">
                 <div className="avatar-sm bg-light rounded p-1">
+                  {/* {console.log(product),"aa"} */}
                   <img
-                    src={process.env.REACT_APP_API_URL + "/images/products/" + product.row.original.image}
+                    src={process.env.REACT_APP_API_URL + "/upload/" + product.row.original.thumbnail}
                     alt=""
                     className="img-fluid d-block"
                   />
@@ -176,14 +176,14 @@ const EcommerceProducts = (props) => {
                     className="text-dark"
                   >
                     {" "}
-                    {product.row.original.name}
+                    {product.row.original.title}
                   </Link>
                 </h5>
                 <p className="text-muted mb-0">
                   Category :{" "}
                   <span className="fw-medium">
                     {" "}
-                    {product.row.original.category}
+                    {product.row.original.subCategory}
                   </span>
                 </p>
               </div>
@@ -206,13 +206,12 @@ const EcommerceProducts = (props) => {
       },
       {
         Header: "Хандалт",
-        accessor: "orders",
+        accessor: "count",
         filterable: false,
       },
-
       {
         Header: "Нийтэлсэн",
-        accessor: "publishedDate",
+        accessor: "createdAt",
         filterable: false,
         Cell: (cellProps) => {
           return <Published {...cellProps} />;
@@ -330,14 +329,14 @@ const EcommerceProducts = (props) => {
                     Үнэ
                   </p>
 
-                  <Nouislider
+                  {/* <Nouislider
                     range={{ min: 0, max: 2000 }}
                     start={[0, 2000]}
                     connect
                     onSlide={onUpdate}
                     data-slider-color="primary"
                     id="product-price-range"
-                  />
+                  /> */}
                    <div className="formCost d-flex gap-2 align-items-center mt-3">
                     <input className="form-control form-control-sm" type="text" id="minCost" readOnly />
                     <span className="fw-semibold text-muted">to</span>
@@ -472,6 +471,7 @@ const EcommerceProducts = (props) => {
                 <div className="card-body pt-0">
                   {productList && productList.length > 0 ? (
                     <>
+                    {console.log(productList, "aa")}
                       <TableContainer
                         columns={columns}
                         data={(productList || [])}

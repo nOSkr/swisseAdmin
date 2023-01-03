@@ -8,11 +8,7 @@ import Route from './Routes';
 
 
 
-// Fake Backend 
-import fakeBackend from "./helpers/AuthType/fakeBackend";
 
-// Activating fake backend
-fakeBackend();
 
 
 

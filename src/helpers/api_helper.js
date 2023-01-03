@@ -98,6 +98,7 @@ const getLoggedinUser = () => {
   if (!user) {
     return null;
   } else {
+
     return JSON.parse(user);
   }
 };

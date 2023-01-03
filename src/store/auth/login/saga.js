@@ -16,7 +16,7 @@ function* loginUser({ payload: { user, history } }) {
   try {
     if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
       const response = yield call(postJwtLogin, {
-        email: user.email,
+        phone: user.phone,
         password: user.password,
       });
       sessionStorage.setItem("authUser", JSON.stringify(response));
@@ -28,12 +28,13 @@ function* loginUser({ payload: { user, history } }) {
       }
     } else if (process.env.REACT_APP_API_URL) {
       const response = yield call(postFakeLogin, {
-        email: user.email,
+        phone: user.phone,
         password: user.password,
       });
+      console.log(response)
       sessionStorage.setItem("authUser", JSON.stringify(response));
-      if (response.status === "success") {
-        yield put(loginSuccess(response));
+      if (response.success) {
+        yield put(loginSuccess(response.user));
         history('/dashboard')
       } else {
         yield put(apiError(response));

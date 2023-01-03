@@ -93,29 +93,32 @@ const EcommerceAddProduct = (props) => {
     enableReinitialize: true,
 
     initialValues: {
-      name: "",
+      // 1ner
+      title: "",
+      // 2une
       price: "",
-      stock: "",
-      orders: "",
+      // 3nairlaga
+      ingredients: "",
+      // 4jin
+      weight: "",
+      // 5cate
       category: "",
-      status: "",
-      rating: 4.5,
-      manufacturer_name: "",
-      manufacturer_brand: "",
-      product_discount: "",
-      meta_title: "",
-      meta_keyword: "",
-      product_tags: "",
+      // 6sub cate
+      subCategory: "",
+      // 7 uldegdel
+      stock: "",
+      // 8 nariin medeelel
+      otherInfo:"",
+      // 9 tailbar
+      description:"",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter a Product Title"),
-      price: Yup.string().required("Please Enter a Product Price"),
-      stock: Yup.string().required("Please Enter a Product stock"),
-      orders: Yup.string().required("Please Enter a Product orders"),
+      title: Yup.string().required("Барааны нэр заавал байх ёстой"),
+      price: Yup.string().required("Барааны үнэ заавал байх ёстой"),
       category: Yup.string().required("Please Enter a Product category"),
       status: Yup.string().required("Please Enter a Product status"),
       manufacturer_name: Yup.string().required(
-        "Please Enter a Manufacturer Name"
+        "Please Enter a Manufacturer title"
       ),
       manufacturer_brand: Yup.string().required(
         "Please Enter a Manufacturer Brand"
@@ -130,10 +133,10 @@ const EcommerceAddProduct = (props) => {
     onSubmit: (values) => {
       const newProduct = {
         _id: (Math.floor(Math.random() * (30 - 20)) + 20).toString(),
-        name: values.name,
+        title: values.title,
         price: values.price,
         stock: values.stock,
-        orders: values.orders,
+        ingredients: values.ingredients,
         category: values.category,
         status: values.status,
         rating: 4.5,
@@ -169,43 +172,29 @@ const EcommerceAddProduct = (props) => {
                       className="form-control"
                       id="product-title-input"
                       placeholder="Барааны нэр оруулна уу"
-                      name="name"
-                      value={validation.values.name || ""}
+                      name="title"
+                      value={validation.values.title || ""}
                       onBlur={validation.handleBlur}
                       onChange={validation.handleChange}
                       invalid={
-                        validation.errors.name && validation.touched.name
+                        validation.errors.title && validation.touched.title
                           ? true
                           : false
                       }
                     />
-                    {validation.errors.name && validation.touched.name ? (
-                      <FormFeedback type="invalid">
-                        {validation.errors.name}
-                      </FormFeedback>
-                    ) : null}
                   </div>
                   <div>
                     <Label>Барааны дэлгэрэнгүй</Label>
 
                     <CKEditor
                       editor={ClassicEditor}
-                      data="<p>
-                      Tommy Hilfiger men striped pink sweatshirt. Crafted with
-                      cotton. Material composition is 100% organic cotton.
-                      This is one of the world’s leading designer lifestyle
-                      brands and is internationally recognized for celebrating
-                      the essence of classic American cool style, featuring
-                      preppy with a twist designs.
-                    </p>
-                    <ul>
-                      <li>Full Sleeve</li>
-                      <li>Cotton</li>
-                      <li>All Sizes available</li>
-                      <li>4 Different Color</li>
-                    </ul>"
+                      data=""
+                      onChange={(event,editor) => {
+                        const data = editor.getData();
+                        console.log({event,editor,data})
+                      }}
                       onReady={(editor) => {
-                        // You can store the "editor" and use when it is needed.
+                        console.log(editor)
                       }}
                     />
                   </div>
@@ -322,7 +311,7 @@ const EcommerceAddProduct = (props) => {
                 </CardBody>
               </Card>
 
-              <Card>
+              {/* <Card>
                 <CardHeader>
                 <NavLink
                         style={{ cursor: "pointer" }}
@@ -421,7 +410,7 @@ const EcommerceAddProduct = (props) => {
                         ></textarea>
                       </div>
                 </CardBody>
-              </Card>
+              </Card> */}
 
               <div className="text-end mb-3">
                 <button type="submit" className="btn btn-success w-sm">

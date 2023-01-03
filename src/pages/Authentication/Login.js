@@ -37,7 +37,7 @@ const Login = (props) => {
 
         if (user && user) {
             setUserLogin({
-                email: user.user.email,
+                phone: user.user.phone,
                 password: user.user.confirm_password
             });
         }
@@ -48,11 +48,11 @@ const Login = (props) => {
         enableReinitialize: true,
 
         initialValues: {
-            email: userLogin.email || "admin@themesbrand.com" || '',
-            password: userLogin.password || "123456" || '',
+            phone: userLogin.phone || "97014400" || '',
+            password: userLogin.password || "1234" || '',
         },
         validationSchema: Yup.object({
-            email: Yup.string().required("Please Enter Your Email"),
+            phone: Yup.string().required("Please Enter Your phone"),
             password: Yup.string().required("Please Enter Your Password"),
         }),
         onSubmit: (values) => {
@@ -112,22 +112,20 @@ const Login = (props) => {
                                                 action="#">
 
                                                 <div className="mb-3">
-                                                    <Label htmlFor="email" className="form-label">Email</Label>
+                                                    <Label htmlFor="phone" className="form-label">phone</Label>
                                                     <Input
-                                                        name="email"
+                                                        name="phone"
                                                         className="form-control"
-                                                        placeholder="Enter email"
-                                                        type="email"
+                                                        placeholder="Enter phone"
+                                                        type="phone"
                                                         onChange={validation.handleChange}
                                                         onBlur={validation.handleBlur}
-                                                        value={validation.values.email || ""}
+                                                        value={validation.values.phone || ""}
                                                         invalid={
-                                                            validation.touched.email && validation.errors.email ? true : false
+                                                            validation.touched.phone && validation.errors.phone ? true : false
                                                         }
                                                     />
-                                                    {validation.touched.email && validation.errors.email ? (
-                                                        <FormFeedback type="invalid">{validation.errors.email}</FormFeedback>
-                                                    ) : null}
+                                                  
                                                 </div>
 
                                                 <div className="mb-3">

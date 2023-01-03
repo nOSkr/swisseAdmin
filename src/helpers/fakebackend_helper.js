@@ -59,52 +59,6 @@ export const postJwtRegister = (url, data) => {
 // Login Method
 export const postJwtLogin = data => api.create(url.POST_FAKE_JWT_LOGIN, data);
 
-// postForgetPwd
-export const postJwtForgetPwd = data => api.create(url.POST_FAKE_JWT_PASSWORD_FORGET, data);
-
-
-
-// Calendar
-// get Events
-export const getEvents = () => api.get(url.GET_EVENTS);
-
-// get Events
-export const getCategories = () => api.get(url.GET_CATEGORIES);
-
-// get Upcomming Events
-export const getUpCommingEvent = () => api.get(url.GET_UPCOMMINGEVENT);
-
-// add Events
-export const addNewEvent = event => api.create(url.ADD_NEW_EVENT, event);
-
-// update Event
-export const updateEvent = event => api.put(url.UPDATE_EVENT, event);
-
-// delete Event
-export const deleteEvent = event => api.delete(url.DELETE_EVENT, { headers: { event } });
-
-// Chat
-// get Contact
-export const getDirectContact = () => api.get(url.GET_DIRECT_CONTACT);
-
-// get Messages
-export const getMessages = roomId => api.get(`${url.GET_MESSAGES}/${roomId}`, { params: { roomId } });
-
-// add Message
-export const addMessage = message => api.create(url.ADD_MESSAGE, message);
-
-// add Message
-export const deleteMessage = message => api.delete(url.DELETE_MESSAGE, { headers: { message } });
-
-// get Channels
-export const getChannels = () => api.get(url.GET_CHANNELS);
-
-// MailBox
-//get Mail
-export const getMailDetails = () => api.get(url.GET_MAIL_DETAILS);
-
-// delete Mail
-export const deleteMail = forId => api.delete(url.DELETE_MAIL, { headers: { forId } });
 
 // Ecommerce
 // get Products
